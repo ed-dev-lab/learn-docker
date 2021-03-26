@@ -1,0 +1,14 @@
+Introduction to Containerization and Docker
+
+Containerization = encapsulate/packaging software code so it can run consistenly and uniformly on any infrastructure.
+All you need to know:
+  1. Node.js
+  2. Express.js
+  3. SQLite3
+  4. Python 2 or 3
+  5. C/C++ tool-chain
+  
+Docker is an implementation to containerize application.
+
+Install Docker 
+https://docs.docker.com/engine/install/ubuntu/
