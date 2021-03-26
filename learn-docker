@@ -1,4 +1,4 @@
-Introduction to Containerization and Docker
+Introduction to Containerization and Docker - https://www.freecodecamp.org/news/the-docker-handbook/#how-to-install-docker-on-linux
 
 Containerization = encapsulate/packaging software code so it can run consistenly and uniformly on any infrastructure.
 All you need to know:
@@ -12,3 +12,77 @@ Docker is an implementation to containerize application.
 
 Install Docker 
 https://docs.docker.com/engine/install/ubuntu/
+
+1. Intro to Docker Basics
+
+  docker ps -a // to look at all the containers that are currently running or have run in the past.
+  
+  A. DOCKER ARCHITECTURE
+    1. Container
+       package code and dependencies together that virtualize the host OS only.
+    2. Image
+    3. Registry
+    
+    Three major components:
+      1. Docker Daemon >> dockerd // keeps running in the background and waits for command from clients
+      2. Docker Client >> docker // cli for transporting commands issued by users
+      3. REST API // bridge between daemon and client
+      
+    Docker uses a client-server architecture.
+    
+2. Docker Container Manipulation Basics
+
+ docker syntax || docker <object> <command> <options>
+  | a. object - indicate the type of Docker object that will be manipulated
+  | b. command - indicate the task to be carried out by the daemon
+  | c. options - parameter that can override the default behaviour of the command
+     
+  How to Publish a Port
+  --publish <hostport>:<containerport>
+  --publish 8080:80 || any req sent to port 8080 of the system will be forwarded to port 80 inside the container
+  
+  How to Use Detached Mode
+  --detach or -d || only get the ID of the newly created container
+  
+  How to List Containers
+  containers ls || command can be used to list out containers that are currently running
+    | docker container ls
+    | docker container ls --all
+    
+  How to Name or Rename a Container
+  by default, every container has 2 identifiers
+    1. CONTAINER ID - a random 64 char-long string
+      docker container run --detach --publish 8888:80 --name hello-dock-container fhsinchy/hello-dock
+    2. NAME - combination of 2 random words, joined with an underscore
+      docker container rename <container identifier> <new name>
+ 
+  How to Stop or Kill a Running Container
+  docker container stop <container identifier> or ctrl+c
+  
+  How to Restart a Container
+  there are two scenarios:
+    1. restarting a container that has been previously stopped or killed
+    2. rebooting a running container
+   docker container start <container identifier> 
+   
+   How to Create a Container Withour Running
+   1. container create || command creates a container from a given image.
+   2. container start || command starts a container that has been already
+    
+   How to Remove Dangling Containers
+   docker container rm <container identifier>
+    
+   How to Run a Container in Interactive Mode
+   docker container run --rm -it ubuntu || -it command will land you direclty on bash inside the ubuntu container.
+   \\ --it container two separe options mashed together
+        | -i or --interactive > connects you to the input stream of the container, so you can send inputs to bash
+        | -t or --tty > make sure that you get some good formattin and a native terminal-like experience by allocating a pseudo-tty
+        
+   How to Execute Command Inside a Container
+   docker container run --rm busybox echo -n my-secret | base64
+   
+   How to Work With Executable Images
+   
+   
+3. Docker Image Manipulation Basics    
+    
